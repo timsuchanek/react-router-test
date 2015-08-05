@@ -6,14 +6,11 @@ var Router = require('react-router');
 
 var Routes = require('../app/routes');
 
+console.log(Routes);
+
 module.exports = function(req, res, next) {
 
-	var router = Router.create({
-		location: req.url,
-		routes: Routes
-	});
-
-	Router.run(function(Handler, state) {
+	Router.run(Routes, req.url, function(Handler, state) {
 		var html = React.renderToString(<Handler />);
 
 		return res.end(React.renderToString(

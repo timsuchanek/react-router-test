@@ -53,14 +53,11 @@ module.exports =
 
 	var Routes = __webpack_require__(174);
 
+	console.log(Routes);
+
 	module.exports = function(req, res, next) {
 
-		var router = Router.create({
-			location: req.url,
-			routes: Routes
-		});
-
-		Router.run(function(Handler, state) {
+		Router.run(Routes, req.url, function(Handler, state) {
 			var html = React.renderToString(React.createElement(Handler, null));
 
 			return res.end(React.renderToString(
@@ -22417,7 +22414,7 @@ module.exports =
 /* 174 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var React = __webpack_require__(175);
+	var React = __webpack_require__(1);
 	var Router = __webpack_require__(173);
 	var Route = Router.Route;
 	var RouteHandler = Router.RouteHandler;
@@ -22426,6 +22423,7 @@ module.exports =
 		render: function() {
 			return (
 				React.createElement("div", {className: "app"}, 
+					React.createElement("h1", null, "App"), 
 					React.createElement(RouteHandler, null)
 				)
 			);
@@ -22435,8 +22433,8 @@ module.exports =
 	var Home = React.createClass({displayName: "Home",
 		render: function() {
 			return (
-				React.createElement("div", null, 
-					React.createElement("h1", null, "Home")
+				React.createElement("div", {ref: "123"}, 
+					React.createElement("h2", null, "Home")
 				)
 			)
 		}
@@ -22444,19 +22442,13 @@ module.exports =
 
 
 	var Routes = (
-		React.createElement(Route, {name: "app", handler: App}, 
+		React.createElement(Route, {handler: App}, 
 			React.createElement(Route, {name: "home", path: "/", handler: Home})
 		)
 	);
 
 	module.exports = Routes;
 
-
-/***/ },
-/* 175 */
-/***/ function(module, exports) {
-
-	module.exports = require("react");
 
 /***/ }
 /******/ ]);

@@ -1,4 +1,4 @@
-var React = require('react');
+var React = require('react/addons');
 var Router = require('react-router');
 var Route = Router.Route;
 var RouteHandler = Router.RouteHandler;
@@ -7,6 +7,7 @@ var App = React.createClass({
 	render: function() {
 		return (
 			<div className='app'>
+				<h1>App</h1>
 				<RouteHandler />
 			</div>
 		);
@@ -16,8 +17,8 @@ var App = React.createClass({
 var Home = React.createClass({
 	render: function() {
 		return (
-			<div>
-				<h1>Home</h1>
+			<div ref="123">
+				<h2>Home</h2>
 			</div>
 		)
 	}
@@ -25,7 +26,7 @@ var Home = React.createClass({
 
 
 var Routes = (
-	<Route name="app" handler={App}>
+	<Route handler={App}>
 		<Route name="home" path="/" handler={Home} />
 	</Route>
 );
