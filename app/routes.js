@@ -25,8 +25,8 @@ var Home = React.createClass({
 
 
 var Routes = (
-	<Route handler={App}>
-		<Route name="test" path="/" handler={Home} />
+	<Route name="app" handler={App}>
+		<Route name="home" path="/" handler={Home} />
 	</Route>
 );
 

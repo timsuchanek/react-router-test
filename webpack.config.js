@@ -29,7 +29,7 @@ module.exports = [
 	target: "node",
 	output: {
 		path: assetsPath,
-		filename: __dirname + "/server/page.generated.js",
+		filename: "../../server/page.generated.js",
 		publicPath: publicPath,
 		libraryTarget: "commonjs2"
 	},

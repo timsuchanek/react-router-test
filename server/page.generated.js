@@ -22444,7 +22444,7 @@ module.exports =
 
 
 	var Routes = (
-		React.createElement(Route, {handler: App}, 
+		React.createElement(Route, {name: "app", handler: App}, 
 			React.createElement(Route, {name: "home", path: "/", handler: Home})
 		)
 	);
